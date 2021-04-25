@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Selly_Calligraphy';
+    src: url('../fonts/Selly_Calligraphy.ttf');
+  }
+
+  form{
+    top: 50%;
+    left: 50%;
+    color: white;
+    padding: 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: none;
+    font-weight: 400;
+  }
+  form h1 {
+    color: #55efc4;
+    font-size: 50px;
+    font-family: 'Selly_Calligraphy', sans-serif ;
+  }
+  form h3 {
+    letter-spacing: 0.5px;
+  }
+  input[type="submit"] {
+    /*width: 50px;*/
+    color: white;
+    border: 1px solid #55efc4;
+    padding: 5px;
+    transition: 0.5s;
+    background: none;
+    border-radius: 15px;
+  }
+  input[type="submit"]:hover {
+    cursor: pointer;
+    outline: none;
+    background: #55efc4;
+  }  
