@@ -1,0 +1,50 @@
+#registration {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+#registration h1 {
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+#message_pseudo, #message_password, #message_fields_empty, #message_password  {
+    color: tomato;
+    height: 1em;
+}
+#registration input[type="text"],
+#registration input[type="password"] {
+    color: white;
+    width: 200px;
+    border: 0.5px solid #55efc4;
+    margin: 20px auto;
+    display: block;
+    outline: none;
+    padding: 12px;
+    background: none;
+    text-align: center;
+    transition: 0.25s;
+    border-radius: 24px;
+}
+#registration input[type="text"]:focus,
+#registration input[type="password"]:focus {
+    width: 280px;
+}
+#registration input[ type = "submit"] {
+    color: white;
+    border: 0.5px solid #55efc4;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    padding: 14px 40px;
+    outline: none;
+    background: none;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 24px;
+}
+#registration input[ type = "submit"]:hover {
+    background: #55efc4;
+}

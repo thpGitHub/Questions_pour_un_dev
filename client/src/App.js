@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/home';
 import Login from './components/login';
+import Registration from './components/registration';
+import Choose_Game from './components/choose_game';
 
 const App = () => {
 
@@ -16,6 +18,9 @@ const App = () => {
              <Switch>
                   <Route exact path="/" component={ Home }/>
                   <Route exact path="/login" component={ Login }/>
+                  <Route exact path="/registration" component={ Registration }/>
+                  <Route exact path="/choose_game" component={ Choose_Game }/>
+                  
                   {/* <Route exact path="/pokemon/add" component={ PokemonAdd }/>
                   <Route exact path="/pokemons/edit/:id" component={ PokemonEdit }/>
                   <Route exact path="/pokemon/:id" component={ PokemonDetail }/>

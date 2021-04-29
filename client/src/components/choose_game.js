@@ -1,0 +1,13 @@
+import './choose_game.css';
+
+const Choose_Game = () => {
+
+    return (
+        <form id="chooseGame">
+            <input type="submit" value="Un Joueur"/>
+            <input type="submit" value="Deux Joueur"/>
+        </form>
+    );
+}
+
+export default Choose_Game;
