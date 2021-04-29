@@ -1,5 +1,76 @@
-#p {
-    top: 50px;
+@font-face {
+    font-family: 'robotica';
+    src: url('../fonts/ROBOTICA.TTF');
+}
+#login {
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 40px;
     position: absolute;
-    color: antiquewhite;
+    transform: translate(-50%, -50%);
+    background: none;
+    text-align: center;
+    /*background-color: #b2bec3;*/
+    /*opacity: 0.8;*/
+}
+#login h1 {
+    color: white;
+    font-weight: 500;
+    cursor: default;
+
+}
+#message {
+    color: tomato;
+    height: 13px;
+    font-size: 10px;
+    font-family: robotica, sans-serif;
+}
+#login input[ type = "text" ],
+#login input[ type = "password"] {
+    color: white;
+    width: 200px;
+    border: 0.5px solid #55efc4;
+    margin: 20px auto;
+    display: block;
+    outline: none;
+    padding: 14px;
+    background: none;
+    text-align: center;
+    transition: 0.25s;
+    border-radius: 24px;
+}
+#login input[ type = "text" ]:focus,
+#login input[ type = "password"]:focus {
+    width: 280px;
+    border-color: #00b894;
+}
+#login input[ type = "submit"] {
+    color: white;
+    border: 0.5px solid #55efc4;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    padding: 14px 40px;
+    outline: none;
+    background: none;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 24px;
+}
+#login input[ type = "submit"]:hover {
+    background: #55efc4;
+}
+#login input[ type = "text" ] { /*pour rapprocher la div avec le message*/
+    margin-top: 1px;
+
+}
+#login a {
+    color: #55efc4;
+    font-size: 10px;
+    font-weight: 400;
+}
+#login a:hover {
+    color: white;
+    /*color: #f7f1e3;*/
 }
