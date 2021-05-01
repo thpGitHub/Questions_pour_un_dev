@@ -1,0 +1,104 @@
+#container_playground {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center; 
+}
+
+#playground {
+    background-color: antiquewhite;
+    display: grid;
+}
+/* Screen larger than 100px? */
+@media (min-width: 100px) {
+    #playground { 
+        /* display: flex;  */
+                width: 240;
+                
+                grid-template-columns: repeat(24, 10px);
+                grid-template-rows: repeat(34, 10px);
+    }
+    #timer_number {
+        width: calc(10px * 4);
+    }  
+    #side_left {
+        grid-area: 5/1/10/13;
+        background-color: dodgerblue;
+  }
+  #side_right {
+        grid-area: 5/13/10/25;
+        background-color:greenyellow;
+  }
+  #side_middle {
+        grid-area: 10/1/25/25;
+        background-color:goldenrod;
+  }
+  } 
+/* Screen larger than 700px? */
+@media (min-width: 700px) {
+    #playground {  
+                width: 600px;
+                grid-template-columns: repeat(24, 25px);
+                grid-template-rows: repeat(24, 25px);
+    }
+    #timer_number {
+        width: calc(25px * 4);
+    } 
+    #side_left {
+        grid-area: 5/1/25/6;
+        background-color: dodgerblue;
+  }
+  #side_right {
+        grid-area: 5/20/25/25;
+        background-color:dodgerblue;
+  }
+  #side_middle {
+        grid-area: 5/6/25/20;
+        background-color:goldenrod;
+  }
+   
+  } 
+  /* Screen larger than 1000px? */
+@media (min-width: 1000px) {
+    #playground {  
+        width: 720px;
+        grid-template-columns: repeat(24, 30px);
+        grid-template-rows: repeat(24, 30px); 
+    }
+    #timer_number {
+        width: calc(30px * 4);
+    }           
+  }
+/*super propriété  grid-row-start/grid-column-start/grid-row-end/grid-column-end*/
+#timer {
+    display: flex;
+    grid-area: 1/1/5/25;
+    align-items: center;
+    justify-content: center; 
+    background-color:chocolate;
+    
+}
+#timer_number {
+    height: 100%;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center; 
+    background-color:darkseagreen;
+}
+/* #side_left {
+      grid-area: 5/1/25/6;
+      background-color: dodgerblue;
+}
+#side_right {
+      grid-area: 5/20/25/25;
+      background-color:dodgerblue;
+}
+#side_middle {
+      grid-area: 5/6/25/20;
+      background-color:goldenrod;
+} */

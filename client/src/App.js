@@ -5,6 +5,7 @@ import Home from './components/home';
 import Login from './components/login';
 import Registration from './components/registration';
 import Choose_Game from './components/choose_game';
+import Game from './components/game';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
                   <Route exact path="/login" component={ Login }/>
                   <Route exact path="/registration" component={ Registration }/>
                   <Route exact path="/choose_game" component={ Choose_Game }/>
+                  <Route exact path="/game" component={ Game }/>
                   
                   {/* <Route exact path="/pokemon/add" component={ PokemonAdd }/>
                   <Route exact path="/pokemons/edit/:id" component={ PokemonEdit }/>
