@@ -18,6 +18,7 @@
     #playground { 
         /* display: flex;  */
                 width: 240;
+                font-size: 10px ;
                 
                 grid-template-columns: repeat(24, 10px);
                 grid-template-rows: repeat(34, 10px);
@@ -42,6 +43,7 @@
 @media (min-width: 700px) {
     #playground {  
                 width: 600px;
+                font-size: 25px;
                 grid-template-columns: repeat(24, 25px);
                 grid-template-rows: repeat(24, 25px);
     }
@@ -59,6 +61,22 @@
   #side_middle {
         grid-area: 5/6/25/20;
         background-color:goldenrod;
+  }
+  #question {
+      /* padding-top: 25px; */
+      width: 100%;
+      border: solid black 1px;
+      margin-top: 25px;
+  }
+  #responses {
+    width: 100%;
+    margin-top: 25px;
+  }
+  #responses > div {
+    border: solid black 1px;
+    padding-left: 10px;
+    margin-bottom: 12px;
+    border-radius: 25px;  
   }
    
   } 
@@ -90,15 +108,23 @@
     justify-content: center; 
     background-color:darkseagreen;
 }
-/* #side_left {
-      grid-area: 5/1/25/6;
-      background-color: dodgerblue;
+ #side_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+      /* grid-area: 5/1/25/6;
+      background-color: dodgerblue; */
 }
 #side_right {
-      grid-area: 5/20/25/25;
-      background-color:dodgerblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 #side_middle {
-      grid-area: 5/6/25/20;
-      background-color:goldenrod;
-} */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

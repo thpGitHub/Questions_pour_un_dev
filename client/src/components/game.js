@@ -8,9 +8,10 @@ const Game = () => {
                 <header id="timer">
                     <article id="timer_number">15</article>
                 </header>
-                <aside id="side_left">Joueur 1
+                <aside id="side_left">
+                    <div>Joueur 1</div>
                     <div>nom 1</div>
-                    <p>score :<span id="score_player_two"> 0</span></p>
+                    <div>score :<span id="score_player_two"> 0</span></div>
                 </aside>
                 <aside id="side_middle">
                     <section id="message">
@@ -18,19 +19,20 @@ const Game = () => {
                         <div id="message_all_players">message all players</div>
                     </section>
                     <section id="question">
-                        <h2>Question</h2>
-                        <p>Ici la question</p>
+                        {/* <h2>Question</h2> */}
+                        <div>Ici la question</div>
                     </section>
                     <section id="responses">
-                        <div id="response_a"></div>
-                        <div id="response_b"></div>
-                        <div id="response_c"></div>
-                        <div id="response_d"></div>
+                        <div id="response_a">A:</div>
+                        <div id="response_b">B:</div>
+                        <div id="response_c">C:</div>
+                        <div id="response_d">D:</div>
                     </section>
                 </aside>
-                <aside id="side_right">Joueur 2
+                <aside id="side_right">
+                    <div>Joueur 2</div>
                     <div>nom 2</div>
-                    <p>score :<span id="score_player_two"> 0</span></p>
+                    <div>score :<span id="score_player_two"> 0</span></div>
                 </aside>    
             </section>
         </main>
