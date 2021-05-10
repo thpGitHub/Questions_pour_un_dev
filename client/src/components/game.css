@@ -10,8 +10,10 @@
 }
 
 #playground {
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     display: grid;
+    color: white;
+    border: solid #55efc4 0.5px;
 }
 /* Screen larger than 100px? */
 @media (min-width: 100px) {
@@ -28,17 +30,20 @@
     }  
     #side_left {
         grid-area: 5/1/10/13;
-        background-color: dodgerblue;
+        /* background-color: dodgerblue; */
   }
   #side_right {
         grid-area: 5/13/10/25;
-        background-color:greenyellow;
+        /* backgrsound-color:greenyellow; */
   }
   #side_middle {
         grid-area: 10/1/25/25;
-        background-color:goldenrod;
+        /* background-color:goldenrod; */
   }
-  } 
+  #question {
+      text-align: center;
+  }
+} 
 /* Screen larger than 700px? */
 @media (min-width: 700px) {
     #playground {  
@@ -52,20 +57,23 @@
     } 
     #side_left {
         grid-area: 5/1/25/6;
-        background-color: dodgerblue;
+        /* background-color: dodgerblue; */
+        background: none;
   }
   #side_right {
         grid-area: 5/20/25/25;
-        background-color:dodgerblue;
+        /* background-color:dodgerblue; */
   }
   #side_middle {
         grid-area: 5/6/25/20;
-        background-color:goldenrod;
+        /* background-color:goldenrod; */
+        padding-top: 10px;
+        background: none;
   }
   #question {
       /* padding-top: 25px; */
       width: 100%;
-      border: solid black 1px;
+      border: 0.5px solid #55efc4;
       margin-top: 25px;
   }
   #responses {
@@ -73,8 +81,10 @@
     margin-top: 25px;
   }
   #responses > div {
-    border: solid black 1px;
+    border: 0.5px solid #55efc4;
     padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom:  5px;
     margin-bottom: 12px;
     border-radius: 25px;  
   }
@@ -97,7 +107,7 @@
     grid-area: 1/1/5/25;
     align-items: center;
     justify-content: center; 
-    background-color:chocolate;
+    /* background-color:chocolate; */
     
 }
 #timer_number {
@@ -106,7 +116,8 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center; 
-    background-color:darkseagreen;
+    /* background-color:darkseagreen; */
+    border: 0.5px solid #55efc4;
 }
  #side_left {
     display: flex;
@@ -127,4 +138,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+#question {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0.5px solid #55efc4;
 }
