@@ -1,5 +1,7 @@
+import  React from 'react';
 import './login.css';
 import { useHistory } from 'react-router-dom';
+
 
 const Login = () => {
 
@@ -7,20 +9,37 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Enter in handleSummit');
-        history.push('/choose_game');
+        if(document.querySelector('#pseudo').value==="" ||
+            document.querySelector('#pwd').value==="") {
+            console.log('toto');
+            document.querySelector('#message_login').innerHTML = 'veuillez remplir tous les champs';
+            document.querySelector('form').reset();
+        } else {
+            console.log('Enter in handleSummit');
+            history.push('/choose_game');
+            
+        }
+    }
+    //vérification au keyup si tous les champs sont remplis on supprime le message 'veuillez remplir tous les champs'
+    const handleKeyUp = () => {
+        console.log('key up function enter :)');
+        if(document.querySelector('#pseudo').value !=="" && 
+           document.querySelector('#pwd').value !=="") {
+               document.querySelector('#message_login').innerHTML = " ";
+
+        }
     }
 
     return (
         <div>
             {/* <form id="login" action="/verify_pseudo_pwd" method="post"> */}
-            <form id="login" onSubmit={ e=> handleSubmit(e)}>
+            <form id="login" onSubmit={ e=> handleSubmit(e) } onKeyUp={ handleKeyUp }>
                 <h1>LOGIN</h1>
                 <div id="message_login"></div>
-                <input type="text"     name="pseudo" placeholder="Pseudo" autoComplete="off" spellCheck="false"/>
-                <input type="password" name="pwd"    placeholder="Password"/>
+                <input type="text"     name="pseudo" id="pseudo" placeholder="Pseudo" autoComplete="off" spellCheck="false" />
+                <input type="password" name="pwd" id="pwd" placeholder="Password"/>
                 <input type="submit"   name="submit" value="Login"/>
-                <a href="/inscription">Create an Account</a>
+                <a href="/registration">Create an Account</a>
             </form>
         </div>
     );
