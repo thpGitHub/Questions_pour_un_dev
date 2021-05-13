@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router()
 
-const User = require('../models/loginModel');
+const Login = require('../models/loginModel');
 
 router.get('/', (req, res) => {
-    User.find()
+    Login.find()
         .then(users => res.json(users))
         .catch(err => console.log(err))
 })
