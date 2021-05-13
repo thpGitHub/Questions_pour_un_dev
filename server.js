@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
+const cors = require('cors');
 require('./database_connect');
 
 
+app.use(cors());
 // API ou controllers
 const login = require('./controllers/loginController');
 app.use('/controllers/loginController', login);
