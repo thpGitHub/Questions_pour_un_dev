@@ -2,7 +2,14 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
+require('./database_connect');
 
+
+// API ou controllers
+const login = require('./controllers/loginController');
+app.use('/controllers/loginController', login);
+
+// Say to Heroku where are the build folder (/client/build)
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // app.get("*", (req, res) => {

@@ -1,6 +1,7 @@
 import  React from 'react';
 import './login.css';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -14,6 +15,12 @@ const Login = () => {
             console.log('toto');
             document.querySelector('#message_login').innerHTML = 'veuillez remplir tous les champs';
             document.querySelector('form').reset();
+
+            axios
+			.get("/controllers/loginController")
+			.then((users) => console.log(users))
+			.catch((err) => console.log(err));
+
         } else {
             console.log('Enter in handleSummit');
             history.push('/choose_game');
@@ -37,7 +44,7 @@ const Login = () => {
                 <h1>LOGIN</h1>
                 <div id="message_login"></div>
                 <input type="text"     name="pseudo" id="pseudo" placeholder="Pseudo" autoComplete="off" spellCheck="false" />
-                <input type="password" name="pwd" id="pwd" placeholder="Password"/>
+                <input type="password" name="pwd"    id="pwd"    placeholder="Password"/>
                 <input type="submit"   name="submit" value="Login"/>
                 <a href="/registration">Create an Account</a>
             </form>
