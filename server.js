@@ -15,6 +15,8 @@ app.use((req, res, next) => {
     // Permet de passer au middleware suivant 
    next();
 });
+
+
 // app.use(cors());
 // API ou controllers
 const login = require('./controllers/loginController');
