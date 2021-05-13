@@ -4,6 +4,7 @@ const http = require('http').createServer(app);
 const path = require('path');
 // const cors = require('cors');
 require('./database_connect');
+require('dotenv').config();//*********** */
 
 app.use((req, res, next) => {
     //Permet d'accéder à notre API depuis n'importe quelle origine ('*')
