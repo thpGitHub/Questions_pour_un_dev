@@ -19,9 +19,13 @@ require('./database_connect');
 
 app.use(cors());
 
+const loginRouter = require('./routes/loginRouter');
+app.use('/loginAll', loginRouter);
+
+
 // API ou controllers
-const login = require('./controllers/loginController');
-app.use('/controllers/loginController', login);
+// const login = require('./controllers/loginController');
+// app.use('/controllers/loginController', login);
 
 // Say to Heroku where are the build folder (/client/build)
 app.use(express.static(path.join(__dirname, 'client', 'build')));

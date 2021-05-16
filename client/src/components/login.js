@@ -17,7 +17,8 @@ const Login = () => {
             document.querySelector('form').reset();
 
             axios
-			.get("/controllers/loginController")
+			// .get("/constrollers/loginController")
+			.get("/loginAll")
 			.then((users) => console.log(users))
 			.catch((err) => console.log(err));
 

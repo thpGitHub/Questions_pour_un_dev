@@ -1,13 +1,19 @@
-const express = require('express');
-const router = express.Router()
+// const express = require('express');
+// const router = express.Router()
 
 const Login = require('../models/loginModel');
 
-router.get('/', (req, res) => {
+exports.loginAll = function(req, res) {
     Login.find()
-        .then(users => res.json(users))
-        .catch(err => console.log(err))
-})
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+}
+
+// router.get('/', (req, res) => {
+//     Login.find()
+//         .then(users => res.json(users))
+//         .catch(err => console.log(err))
+// })
 
 // router.post('/', (req, res) => {
 //     console.log('jsuis dans le router post');
@@ -25,4 +31,6 @@ router.get('/', (req, res) => {
 //             "message": "Error creating account"
 //         }))
 // })
-module.exports = router 
+
+
+// module.exports = router 
