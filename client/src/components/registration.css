@@ -10,7 +10,7 @@
     font-weight: 500;
     letter-spacing: 0.5px;
 }
-#message_pseudo, #message_password, #message_fields_empty, #message_password  {
+#message_registration_fields_empty, #message_registration_pseudo, #message_registration_pwd {
     color: tomato;
     height: 1em;
 }

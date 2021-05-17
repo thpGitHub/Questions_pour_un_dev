@@ -7,9 +7,9 @@ import axios from 'axios';
 const Login = () => {
 
     const [allLogin, setAllLogin] = useState("null");
-    const [pseudo, setPseudo] = useState("");
-    const [pwd, setPwd] = useState("");
-    const [message, setMessage] = useState("");
+    const [pseudo, setPseudo]     = useState("");
+    const [pwd, setPwd]           = useState("");
+    const [message, setMessage]   = useState("");
 
     useEffect(() => {
         axios
