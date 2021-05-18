@@ -18,10 +18,16 @@ require('./database_connect');
 // });
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 const loginRouter = require('./routes/loginRouter');
 app.use('/loginAll', loginRouter);
 
+// const saveLoginRouter = require('/routes/saveLoginRouter');
+app.use('/loginSave', loginRouter);
 
 // API ou controllers
 // const login = require('./controllers/loginController');

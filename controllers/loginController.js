@@ -9,6 +9,10 @@ exports.loginAll = function(req, res) {
     .catch(err => console.log(err))
 }
 
+exports.loginSave = function(req, res) {
+    console.log('jsuis dans le router post');
+    console.log('jsuis dans le router post et req body = ', req.body);
+   }
 // router.get('/', (req, res) => {
 //     Login.find()
 //         .then(users => res.json(users))

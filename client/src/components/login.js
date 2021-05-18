@@ -36,7 +36,7 @@ const Login = () => {
         for(let i=0; i<allLogin.data.length; i++) {
             console.log("dans boucle for",allLogin.data[i]);
             if(allLogin.data[i].pseudo === pseudo && allLogin.data[i].password === pwd) {
-                console.log("pseudo pareil que dans BDD");
+                // console.log("pseudo pareil que dans BDD");
                 history.push('/choose_game');
             }
         }
