@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// const connection = process.env.DB_HOST_ATLAS.toString();
-// const connection = process.env.DB_HOST_ATLAS;
-const connection = process.env.DB_HOST_LOCAL;
-// console.log(connection);
+const connection = process.env.DB_HOST_ATLAS;
+// const connection = process.env.DB_HOST_LOCAL;
+
 mongoose.connect(connection,{ useNewUrlParser: true,
                               useUnifiedTopology: true,
                               useFindAndModify: false})

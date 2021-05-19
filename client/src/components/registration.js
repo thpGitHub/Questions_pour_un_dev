@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './registration.css';
+import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
 
@@ -14,45 +15,51 @@ const Registration = () => {
 
     useEffect( () => {
         axios
-            .get("/loginAll")
+            .get('/loginAll')
             .then((allLogin) => setAllLogin(allLogin))
             .catch((err) => console.log(err))
     },[]);
 
+    const history = useHistory();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(!checkSamePwd(e));
+        console.log(allLogin);
 
         if(!pseudo || !pwd || !confirmPwd) {
-            return setMessageRegistrationFieldsEmpty('Veuillez remplir tous les champs');
+            return setMessageRegistrationFieldsEmpty("Veuillez remplir tous les champs");
             // return;
         }
         if(!checkSamePwd(e)) {
             // console.log(checkSamePwd(e));
-           return setMessageRegistrationPwd('Mots de passes pas identiques');
+           return setMessageRegistrationPwd("Mots de passes pas identiques");
         }
         axios
-			.post("/loginSave", {
-				name: pseudo,
-				email: pwd,
+			.post('/loginSave', {
+				pseudo: pseudo,
+				password: pwd,
 			})
 			.then(function () {
 				alert("Account created successfully");
+                history.push('/login');
 				// window.location.reload();
 			})
 			.catch(function () {
 				alert("Could not creat account. Please try again");
+                window.location.reload();
 			});
     }
 
     /*
-     *   Penser a limiter la longueur du pseudo a 10
+     * Vérification si le pseudo existe dans la BDD  
+     * Penser à limiter la longueur du pseudo à 10
     */
     const checkPseudo = (e) => {
         
         for(let i=0; i<allLogin.data.length; i++) {  
             if(allLogin.data[i].pseudo === e.target.value) {
-                setMessageRegistrationPseudo(`Le pseudo "${e.target.value}" est déjà pris !`);
+                setMessageRegistrationPseudo(`Le pseudo "${ e.target.value }" est déjà pris !`);
             }
         }
     }
@@ -71,9 +78,10 @@ const Registration = () => {
     *et le message 'Mots de passes pas identiques'
     */
     const handleKeyUp = () => {
-        console.log('key up function enter :)');
+        console.log("key up function enter :)");
         
-        if(pseudo !== "" && pwd !== "" && confirmPwd !=="") {
+        if(pseudo !== "" && pwd !== "" && confirmPwd !== "") {
+            console.log("key up function enter in if condition :)");
             setMessageRegistrationFieldsEmpty("");
             setMessageRegistrationPwd("");
         }
@@ -90,33 +98,38 @@ const Registration = () => {
             <input 
                 id="pseudo" 
                 type="text" 
-                placeholder="pseudo" 
                 name="pseudo" 
-                autoComplete="off" 
                 spellCheck="false"
-                onChange={ (e) => checkPseudo(e) }
-                onChange={ (e) => setPseudo(e.target.value) }
+                placeholder="pseudo" 
+                autoComplete="off" 
+                onChange={ (e) => { 
+                                    setPseudo(e.target.value); 
+                                    checkPseudo(e) 
+                                   }
+                          }
             />
 
             <div id="message_registration_pseudo">{ message_registration_pseudo }</div>
             
             <label htmlFor="password"></label>
-            <input id="password" 
+            <input 
+                id="password" 
                 type="password" 
-                placeholder="Mot de passe" 
                 name="password"
+                placeholder="Mot de passe" 
                 onChange={ (e) => setPwd(e.target.value) }
-                />
+            />
 
             <div id="message_registration_pwd">{ message_registration_pwd }</div>
 
             <label htmlFor="confirm_password"></label>
-            <input id="confirm_password"
+            <input 
+                id="confirm_password"
                 type="password" 
-                placeholder="Confirmer le mot de passe" 
                 name="confirm_password"
+                placeholder="Confirmer le mot de passe" 
                 onChange={ (e) => setConfirmPwd(e.target.value) }
-                />
+            />
 
             <input type="submit" value="Valider" name="valid_registration"/>
         </form>

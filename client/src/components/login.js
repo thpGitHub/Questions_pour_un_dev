@@ -43,7 +43,9 @@ const Login = () => {
         setMessage("speudo et/ou mot de passe incorrect")
     }
 
-    //vérification au keyup si tous les champs sont remplis on supprime le message 'veuillez remplir tous les champs'
+    /*
+    * vérification au keyup si tous les champs sont remplis on supprime le message 'veuillez remplir tous les champs'
+    */
     const handleKeyUp = () => {
         console.log('key up function enter :)');
         
