@@ -37,7 +37,20 @@ const Login = () => {
             console.log("dans boucle for",allLogin.data[i]);
             if(allLogin.data[i].pseudo === pseudo && allLogin.data[i].password === pwd) {
                 // console.log("pseudo pareil que dans BDD");
-                history.push('/choose_game');
+                // savePeudoOnServer = pseudo;
+                axios
+			        .post('/savePseudoOnServer', {
+				        pseudo: pseudo
+			        })
+			        .then(function () {
+                        return history.push('/choose_game');
+			        })
+			        .catch(function () {
+				        alert("Not savePseudoOnServer");
+                        window.location.reload();
+			        });
+
+                // history.push('/choose_game');
             }
         }
         setMessage("speudo et/ou mot de passe incorrect")

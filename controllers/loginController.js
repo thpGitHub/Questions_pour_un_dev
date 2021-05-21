@@ -13,10 +13,12 @@ exports.loginSave = function(req, res) {
     console.log('jsuis dans le router post');
     console.log('jsuis dans le router post et req body = ', req.body);
     const { pseudo, password } = req.body;
-    const newLogin = new Login({ pseudo: pseudo, password: password })
+    const newLogin = new Login({ pseudo: pseudo, password: password });
     newLogin.save()
          .then(() => res.json())
-         .catch(err => console.log(err))
+         .catch(err => console.log(err));
+    savePeudoOnServer = pseudo;
+    console.log(savePeudoOnServer);
    }
 
 // router.get('/', (req, res) => {
