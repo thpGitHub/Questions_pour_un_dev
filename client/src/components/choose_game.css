@@ -6,11 +6,8 @@
     transform: translate(-50%, -50%);
 }
 
-#chooseGame input[ type = "submit" ] {
-    /* top: 50%;
-    left: 50%; */
-    display: block;
-    /* position: absolute; */
+/* #chooseGame input[ type = "submit" ] { */
+#submitOnePlayer, #submitTwoPlayer {
     color: white;
     border: 0.5px solid #55efc4;
     cursor: pointer;
@@ -23,6 +20,25 @@
     transition: 0.5s;
     border-radius: 24px;
 }
-#chooseGame input[ type = "submit"]:hover {
+/* #chooseGame input[ type = "submit"]:hover { */
+#submitOnePlayer:hover, #submitTwoPlayer:hover {
     background: #55efc4;
+}
+
+#submitAdmin {
+    color: white;
+    border: 0.5px solid tomato;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    padding: 14px 40px;
+    outline: none;
+    background: none;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 24px;
+}
+
+#submitAdmin:hover {
+    background: tomato;
 }

@@ -19,10 +19,13 @@ app.use('/loginAll', loginRouter);
 app.use('/loginSave', loginRouter);
 
 app.use('/savePseudoOnServer', (req, res) => {
-    console.log('req body in savePseudoOnServer ===', req.body.pseudo);
-    savePeudoOnServer.push({ pseudo: req.body.pseudo });
-    console.log(savePeudoOnServer[0]);
-    console.log(savePeudoOnServer[1]);
+    console.log('req body pseudo in savePseudoOnServer ===', req.body.pseudo);
+    console.log('req body privilege in savePseudoOnServer ===', req.body.privilele);
+    console.log(req.body);
+    // console.log('req body in privilege savePseudoOnServer ===', req.body.privilege);
+    savePeudoOnServer[0] = (req.body);
+    console.log(savePeudoOnServer);
+    // console.log(savePeudoOnServer[1]);
     res.send('savePseudoOnServer OK !')
 })
 

@@ -8,6 +8,7 @@ const Login = () => {
 
     const [allLogin, setAllLogin] = useState("null");
     const [pseudo, setPseudo]     = useState("");
+    const [privilege, setPrivilege]     = useState("");
     const [pwd, setPwd]           = useState("");
     const [message, setMessage]   = useState("");
 
@@ -18,7 +19,7 @@ const Login = () => {
 			.catch((err) => console.log(err));
     },[]);
 
-    const history = useHistory();
+    const history = useHistory(pseudo);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,14 +37,25 @@ const Login = () => {
         for(let i=0; i<allLogin.data.length; i++) {
             console.log("dans boucle for",allLogin.data[i]);
             if(allLogin.data[i].pseudo === pseudo && allLogin.data[i].password === pwd) {
-                // console.log("pseudo pareil que dans BDD");
+                // console.log("allLogin.data[i].privileges === ", allLogin.data[i].privileges);
+                // setPrivilege(allLogin.data[i].privileges);
+                // console.log("setPrivilege === ", privilege);
                 // savePeudoOnServer = pseudo;
                 axios
 			        .post('/savePseudoOnServer', {
-				        pseudo: pseudo
+				        pseudo: pseudo,
+                        privilele: allLogin.data[i].privileges
 			        })
 			        .then(function () {
-                        return history.push('/choose_game');
+                        /*
+                         * Par default le premier paramètre de la methode push de l'objet
+                         * history est  le pathname (ici /choose_game).
+                         * Le deuxieme paramètre est le state (ici pseudo).
+                         * On y accède par objetHistory.location.state.
+                         * ATTENTION :  L'history est l'historique de la page
+                         * et il faut ajouter(créer) le state dans la route sur chaque page ('/choose_game', pseudo)
+                         */
+                        return history.push('/choose_game', pseudo);
 			        })
 			        .catch(function () {
 				        alert("Not savePseudoOnServer");

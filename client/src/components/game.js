@@ -1,6 +1,13 @@
+import React from 'react'
+import { useHistory } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import './game.css'
 
 const Game = () => {
+    const history = useHistory();
+    // const location = useLocation();
+    // const myparam = location.state.params;
+    // console.log('props in game page === ',props);
 
     return (
         <main id="container_playground">
@@ -10,7 +17,7 @@ const Game = () => {
                 </header>
                 <aside id="side_left">
                     <div>Joueur 1</div>
-                    <div>nom 1</div>
+                    <div>{ history.location.state }</div>
                     <div>score :<span id="score_player_two"> 0</span></div>
                 </aside>
                 <aside id="side_middle">
