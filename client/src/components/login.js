@@ -6,11 +6,11 @@ import axios from 'axios';
 
 const Login = () => {
 
-    const [allLogin, setAllLogin] = useState("null");
-    const [pseudo, setPseudo]     = useState("");
-    const [privilege, setPrivilege]     = useState("");
-    const [pwd, setPwd]           = useState("");
-    const [message, setMessage]   = useState("");
+    const [allLogin, setAllLogin]   = useState("null");
+    const [pseudo, setPseudo]       = useState("");
+    const [privilege, setPrivilege] = useState("");
+    const [pwd, setPwd]             = useState("");
+    const [message, setMessage]     = useState("");
 
     useEffect(() => {
         axios
@@ -41,28 +41,34 @@ const Login = () => {
                 // setPrivilege(allLogin.data[i].privileges);
                 // console.log("setPrivilege === ", privilege);
                 // savePeudoOnServer = pseudo;
-                axios
-			        .post('/savePseudoOnServer', {
-				        pseudo: pseudo,
-                        privilele: allLogin.data[i].privileges
-			        })
-			        .then(function () {
-                        /*
-                         * Par default le premier paramètre de la methode push de l'objet
-                         * history est  le pathname (ici /choose_game).
-                         * Le deuxieme paramètre est le state (ici pseudo).
-                         * On y accède par objetHistory.location.state.
-                         * ATTENTION :  L'history est l'historique de la page
-                         * et il faut ajouter(créer) le state dans la route sur chaque page ('/choose_game', pseudo)
-                         */
-                        return history.push('/choose_game', pseudo);
-			        })
-			        .catch(function () {
-				        alert("Not savePseudoOnServer");
-                        window.location.reload();
-			        });
+                // axios
+			    //     .post('/savePseudoOnServer', {
+				//         pseudo: pseudo,
+                //         privilele: allLogin.data[i].privileges
+			    //     })
+			    //     .then(function () {
+                //         /*
+                //          * Par default le premier paramètre de la methode push de l'objet
+                //          * history est  le pathname (ici /choose_game).
+                //          * Le deuxieme paramètre est le state (ici pseudo).
+                //          * On y accède par objetHistory.location.state.
+                //          * ATTENTION :  L'history est l'historique de la page
+                //          * et il faut ajouter(créer) le state dans la route sur chaque page ('/choose_game', pseudo)
+                //          */
+                //         // return history.push('/choose_game', pseudo);
+                //         return history.push('/choose_game', { pseudo: pseudo,
+                //                                               privilege: allLogin.data[i].privileges
+                //                                             });
+			    //     })
+			    //     .catch(function () {
+				//         alert("Not savePseudoOnServer");
+                //         window.location.reload();
+			    //     });
 
-                // history.push('/choose_game');
+                // history.push('/choose_game', pseudo);
+                history.push('/choose_game', { pseudo: pseudo,
+                                               privilege: allLogin.data[i].privileges
+                                             });
             }
         }
         setMessage("speudo et/ou mot de passe incorrect")
@@ -86,19 +92,19 @@ const Login = () => {
                 <h1>LOGIN</h1>
                 <div id="message_login">{ message }</div>
                 <input
-                    onChange={ (e) => setPseudo(e.target.value) }
-                    type="text"
-                    name="pseudo"
                     id="pseudo"
+                    name="pseudo"
+                    type="text"
+                    onChange={ (e) => setPseudo(e.target.value) }
+                    spellCheck="false"
                     placeholder="Pseudo"
                     autoComplete="off"
-                    spellCheck="false"
                 />
                 <input 
-                    onChange={ (e) => setPwd(e.target.value) }
-                    type="password"
-                    name="pwd"
                     id="pwd"
+                    name="pwd"
+                    type="password"
+                    onChange={ (e) => setPwd(e.target.value) }
                     placeholder="Password"
                 />
                 <input type="submit"   name="submit" value="Login"/>
