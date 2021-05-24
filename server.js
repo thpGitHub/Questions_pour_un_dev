@@ -47,10 +47,10 @@ const params_game = { counter_of_questions: 0,
 
 io.on("connection", (socket) => {
     console.log("New client connected");
-    socket.on('chat message', (msg) => {
-        console.log('message recu sur server: ' + msg);
-    });
-    socket.emit('pseudo du gamer', "toto Gamerrr");
+    // socket.on('chat message', (msg) => {
+    //     console.log('message recu sur server: ' + msg);
+    // });
+    // socket.emit('pseudo du gamer', "toto Gamerrr");
     // console.log("socket", socket);
 
     // const response = new Date();
