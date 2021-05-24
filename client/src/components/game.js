@@ -15,6 +15,7 @@ const Game = () => {
      */
     const [chooseGame, setChooseGame] = useState("");
     const [pseudoPlayer, setPseudoPlayer] = useState("");
+    const [numberTimer, setNumberTimer] = useState(15);
     // let [socket, setSocket] = useState("");
     
     // const history = useHistory();
@@ -30,6 +31,9 @@ const Game = () => {
         socket.emit('chat message', "toitoi");
         socket.on('pseudo du gamer', (msg) => {
             console.log('message recu sur le navigateur: ' + msg);
+        });
+        socket.on('counter number', (msg) => {
+            setNumberTimer(msg);
         });
         // socket.on("FromAPI", data => {
         //   setResponse(data);
@@ -65,7 +69,7 @@ const Game = () => {
         <main id="container_playground">
             <section id="playground">
                 <header id="timer">
-                    <article id="timer_number">15</article>
+                    <article id="timer_number">{ numberTimer }</article>
                 </header>
                 <aside id="side_left">
                     <div>Joueur 1</div>

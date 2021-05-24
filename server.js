@@ -35,6 +35,16 @@ app.use('/saveOnePlayerOnServer', (req, res) => {
     res.send('/savePseudoOnServer OK !')
 })
 
+const params_game = { counter_of_questions: 0,
+                      tab_gamer_connect: [],
+                      score_player_one: 0,
+                      score_player_two: 0,
+                      socket_session: "",
+                      all_questions: [1,2],
+                      counter: 15,
+                      timer: 0
+                    };
+
 io.on("connection", (socket) => {
     console.log("New client connected");
     socket.on('chat message', (msg) => {
@@ -45,6 +55,27 @@ io.on("connection", (socket) => {
 
     // const response = new Date();
     // socket.emit("FromAPI", response);
+    function launch_timer() {
+        //if (params_game.counter_of_questions < params_game.all_questions.length) {
+                params_game.timer = setInterval(the_timer, 1000);
+        //}
+    }
+    function the_timer() {
+        console.log('je suis le timer3 :)');
+        io.emit('counter number', params_game.counter);
+        params_game.counter--;
+        if (params_game.counter === -1) {
+            clearInterval(params_game.timer);
+            //params_game.timer_run = 'off';
+            params_game.counter = 15;
+            //params_game.counter_of_questions++;
+            //io.emit ( 'question are ready' ); 08/09/20
+            // if (params_game.counter_of_questions < params_game.all_questions.length) {
+            //     socket.emit ( 'question are ready' );
+            // }
+        }
+    }
+    launch_timer();
   });
 
 /*
