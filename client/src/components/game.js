@@ -40,7 +40,7 @@ const Game = () => {
         //   console.log(response);
         // })
         // const socket = socketIOClient(ENDPOINT);
-        console.log(history);
+        console.log("history dans game === ", history);
         // setPseudoPlayer(history.location.state);
         // if(!pseudoPlayer) {
         //     console.log("c'est possible");

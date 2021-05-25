@@ -1,8 +1,9 @@
 const Question = require('../models/questionsModel');
 
+
 exports.questionsAll = function(req, res) {
     Question.find()
-    .then(users => res.json(users))
+    .then(questions => res.json(questions))
     .catch(err => console.log(err))
 }
 

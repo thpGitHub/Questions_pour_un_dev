@@ -20,9 +20,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+/*
+* Routes
+*/
 const loginRouter = require('./routes/loginRouter');
 app.use('/loginAll', loginRouter);
 app.use('/loginSave', loginRouter);
+
+const questionsRouter = require('./routes/questionsRouter');
+app.use('/questionsAll', questionsRouter);
 
 app.use('/saveOnePlayerOnServer', (req, res) => {
     // console.log('req body pseudo in savePseudoOnServer ===', req.body.pseudo);

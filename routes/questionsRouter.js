@@ -6,7 +6,7 @@ const questionsController = require('../controllers/questionsController');
 
 /// LOGIN ROUTES ///
 
-router.get('/', questionsController.questionAll);
+router.get('/', questionsController.questionsAll);
 
 // router.post('/', loginController.loginSave);
 

@@ -9,6 +9,7 @@ import './choose_game.css';
 const Choose_Game = () => {
     const [pseudo, setPseudo] = useState("");
     const [privilege, setPrivilege] = useState("");
+    const [allQuestions, setAllQuestions] = useState("");
 
     // const props = "totoo";
     // console.log('pseudoProps===', propsPseudo);
@@ -20,18 +21,26 @@ const Choose_Game = () => {
         setPseudo(history.location.state.pseudo);
         setPrivilege(history.location.state.privilege);
 
-    });
+        axios
+			.get("/questionsAll")
+			.then((allQuestions) => setAllQuestions(allQuestions))
+			.catch((err) => console.log(err));
+
+    },[]);
 
     console.log('history dans choose game === ',history);
     console.log('history dans choose game === ',history.location.state.pseudo);
     console.log('historyyy dans choose game === ',pseudo);
+    console.log('allQuestions dans choose game === ',allQuestions.data);
 
 
     const handleSubmitOnePlayer = (e) => {
         e.preventDefault();
+    console.log('history dans choose game === ',history);
         
         return history.push('/game', { pseudo: pseudo,
-                                       player: "one"
+                                       player: "one",
+                                       allQuestions: allQuestions.data
                                      });
 
         // history.push("/game", history.location.state);
