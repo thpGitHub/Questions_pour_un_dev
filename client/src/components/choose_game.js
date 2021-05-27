@@ -21,17 +21,18 @@ const Choose_Game = () => {
         setPseudo(history.location.state.pseudo);
         setPrivilege(history.location.state.privilege);
 
-        axios
-			.get("/questionsAll")
-			.then((allQuestions) => setAllQuestions(allQuestions))
-			.catch((err) => console.log(err));
+        // axios
+		// 	.get("/questionsAll")
+		// 	.then((allQuestions) => setAllQuestions(allQuestions))
+		// 	.catch((err) => console.log(err));
 
     },[]);
 
     console.log('history dans choose game === ',history);
-    console.log('history dans choose game === ',history.location.state.pseudo);
-    console.log('historyyy dans choose game === ',pseudo);
-    console.log('allQuestions dans choose game === ',allQuestions.data);
+    console.log('history.location.state.pseudo dans choose game === ',history.location.state.pseudo);
+    console.log('pseudo dans choose game === ',pseudo);
+    console.log('allQuestions.data dans choose game === ',allQuestions.data);
+    console.log('allQuestions choose game === ',allQuestions);
 
 
     const handleSubmitOnePlayer = (e) => {

@@ -1,9 +1,18 @@
 const Question = require('../models/questionsModel');
 
+ let variableInQuestionControllers;
+// exports.variableInQuestionControllers = variableInQuestionControllers;
 
 exports.questionsAll = function(req, res) {
+    console.log("je suis dans questionControleur !!!!");
     Question.find()
-    .then(questions => res.json(questions))
+    // .then(questions => res.json(questions))
+    .then(questions => {
+        console.log("je suis dans questionControleur !!!!");
+        variableInQuestionControllers = questions;
+        console.log(variableInQuestionControllers);
+            res.json(questions);
+            })
     .catch(err => console.log(err))
 }
 

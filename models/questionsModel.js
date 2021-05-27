@@ -3,27 +3,31 @@ const Schema = mongoose.Schema;
 
 // Attention le schéma est celui de Login penser a faire celui de questions !!!!!
 const loginSchema = new Schema({
-    createdAt: {
-         type: Date,
-         default: Date.now 
+    question: {
+         type: String,
+         required: true 
     },
-    level: {
-        type: Number,
-        default: 3
-    },
-    privileges: {
-        type: String,
-        default: "standart"
-    },
-    pseudo: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    password: {
+    a: {
         type: String,
         required: true
     },
+    b: {
+        type: String,
+        required: true
+    },
+    c: {
+        type: String,
+        required: true
+    },
+    d: {
+        type: String,
+        required: true
+    },
+    response: {
+        type: String,
+        required: true
+    },
+   
 });
 /*
 * Le premier argument est le nom singulier de la collection.
