@@ -59,6 +59,7 @@ let saveAllQuestionsOnServer;
         .then(questions => {
             // SaveAllQuestionsOnServer = questions;
             saveAllQuestionsOnServer = questions;
+            // console.log('length', saveAllQuestionsOnServer.length);
             // console.log(saveAllQuestionsOnServer[0][question]);
             // console.log("SaveAllQuestionsOnServer === ",saveAllQuestionsOnServer[1].question);
             //res.json(questions);
@@ -86,6 +87,9 @@ const params_game = { counter_of_questions: 0,
 io.on("connection", (socket) => {
     console.log("New client connected");
     console.log("SaveAllQuestionsOnServer dans WS ===", saveAllQuestionsOnServer);
+    // console.log("SaveAllQuestionsOnServer length dans WS ===", saveAllQuestionsOnServer.length);
+
+    // console.log("SaveAllQuestionsOnServer LENGTH dans WS ===", saveAllQuestionsOnServer.length);
     
     socket.on('history of navigation', (msg) => {
         console.log("history recu sur le serveur ===", msg);
@@ -100,20 +104,27 @@ io.on("connection", (socket) => {
     });
 
     socket.on("start game", () => {
-        setTimeout(launch_timer, 10000); 
+        console.log("SaveAllQuestionsOnServer length dans WS ===", saveAllQuestionsOnServer.length);
+        
+        if(params_game.counter_of_questions <saveAllQuestionsOnServer.length) {
+            setTimeout(launch_timer, 10000); 
+        } else {
+            io.emit("Game Over");
+        }
         // setTimeout(io.emit("current question", saveAllQuestionsOnServer[params_game.counter_of_questions].question ), 10000); 
     });
-    // let questions = questionsController.variableInQuestionControllers;
-    // console.log("variableInQuestionControllers IN SERVER", questions);
-    // socket.on('chat message', (msg) => {
-    //     console.log('message recu sur server: ' + msg);
-    // });
-    // socket.emit('pseudo du gamer', "toto Gamerrr");
-    // console.log("socket", socket);
 
-    // const response = new Date();
-    // socket.emit("FromAPI", response);
-
+    socket.on("player response", (msg) => {
+        console.log("la reponse du player est ===  ", msg);
+        clearInterval(params_game.timer);
+        params_game.counter = 15;
+        if(msg === saveAllQuestionsOnServer[params_game.counter_of_questions].response) {
+            params_game.score_player_one++;
+            io.emit("bonne reponse", params_game.score_player_one);
+            params_game.counter_of_questions++;
+        }
+        // params_game.counter_of_questions++;
+    });
     /*
     * launch_timer and current question a remplacer par le nom start game !
      */
@@ -135,11 +146,6 @@ io.on("connection", (socket) => {
             clearInterval(params_game.timer);
             //params_game.timer_run = 'off';
             params_game.counter = 15;
-            //params_game.counter_of_questions++;
-            //io.emit ( 'question are ready' ); 08/09/20
-            // if (params_game.counter_of_questions < params_game.all_questions.length) {
-            //     socket.emit ( 'question are ready' );
-            // }
         }
     }
     // launch_timer();

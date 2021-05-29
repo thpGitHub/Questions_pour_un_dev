@@ -6,6 +6,7 @@ import './game.css'
 
 const ENDPOINT = "http://localhost:8001";
 
+const socket = socketIOClient(ENDPOINT);
 // let socket ="";
 
 
@@ -25,6 +26,8 @@ const Game = () => {
     const [responseC, setResponseC] = useState("");
     const [responseD, setResponseD] = useState("");
     const [playerResponse, setPlayerResponse] = useState("");
+    const [scorePlayerOne, setscorePlayerOne] = useState("");
+    // const [socket, setSocket] = useState(socketIOClient(ENDPOINT));
 
     // let [socket, setSocket] = useState("");
     
@@ -33,11 +36,22 @@ const Game = () => {
     // setPseudoPlayer(pseudo);
     const history = useHistory();
     // let socket = "";
+
+    
+    useEffect(() => {
+        // setSocket(socketIOClient(ENDPOINT));
+        console.log("playerResponse Change", playerResponse);
+
+        socket.emit("player response", playerResponse);
+
+     },[playerResponse]);
+
     useEffect(() => {
         /*
          * Connexion Websocket avec le server 
          */
-        const socket = socketIOClient(ENDPOINT);
+        // const socket = socketIOClient(ENDPOINT);
+
         // socket.emit('pseudo du gamer', history.location.state.pseudo);
         socket.emit("history of navigation", history);
         // socket.on('pseudo du gamer', (msg) => {
@@ -69,6 +83,14 @@ const Game = () => {
         socket.on("counter number", (msg) => {
             setNumberTimer(msg);
         });
+        socket.on("bonne reponse", (msg) => {
+            setscorePlayerOne(msg);
+            setMessageAllPlayer("Bonne Réponse");
+            setTimeout(socket.emit("start game"), 3000); 
+        });
+        socket.on("Game Over", (msg) => {
+            setMessageAllPlayer("Le Quizz est terminé");
+        });
         // socket.on("FromAPI", data => {
         //   setResponse(data);
         //   console.log(response);
@@ -83,20 +105,28 @@ const Game = () => {
         //     console.log("c'est possible");
         //     console.log(pseudoPlayer);
         //}
-        if(playerResponse) {
-            console.log("YouHou response du joueur");
-        }
+        // if(playerResponse) {
+        //     console.log("YouHou response du joueur");
+        // }
 
       },[]);
 
-      useEffect(() => {
-        
-        console.log("pseudoPlayerOnePlussss", pseudoPlayerOne);
-     });
 
       const handleResponseA = () => {
-            console.log("la réponse du jour est ", responseA);
-            setPlayerResponse(responseA);
+            console.log("la réponse du jour est ", "a");
+            setPlayerResponse("a");
+        };
+      const handleResponseB = () => {
+            console.log("la réponse du jour est ", "b");
+            setPlayerResponse("b");
+        };
+      const handleResponseC = () => {
+            console.log("la réponse du jour est ", "c");
+            setPlayerResponse("c");
+        };
+      const handleResponseD = () => {
+            console.log("la réponse du jour est ", "d");
+            setPlayerResponse("d");
         };
     //   const socket = socketIOClient(ENDPOINT);
     //   console.log("socket === ", socket);
@@ -126,7 +156,7 @@ const Game = () => {
                     <div>Joueur 1</div>
                     {/* <div>{ history.location.state }</div> */}
                     <div>{ pseudoPlayerOne }</div>
-                    <div>score :<span id="score_player_two"> 0</span></div>
+                    <div>score :<span id="score_player_two"> { scorePlayerOne } </span></div>
                 </aside>
                 <aside id="side_middle">
                     <section id="message">
@@ -138,10 +168,10 @@ const Game = () => {
                         <div>{ currentQuestion }</div>
                     </section>
                     <section id="responses">
-                        <div id="response_a" onClick={handleResponseA}>A: { responseA }</div>
-                        <div id="response_b">B: { responseB }</div>
-                        <div id="response_c">C: { responseC }</div>
-                        <div id="response_d">D: { responseD }</div>
+                        <div id="response_a" onClick={ handleResponseA }>A: { responseA }</div>
+                        <div id="response_b" onClick={ handleResponseB }>B: { responseB }</div>
+                        <div id="response_c" onClick={ handleResponseC }>C: { responseC }</div>
+                        <div id="response_d" onClick={ handleResponseD }>D: { responseD }</div>
                     </section>
                 </aside>
                 <aside id="side_right">
