@@ -75,6 +75,8 @@
       width: 100%;
       border: 0.5px solid #55efc4;
       margin-top: 25px;
+      background-color: #E0D44F;
+      color: black;
   }
   #responses {
     width: 100%;
@@ -88,7 +90,12 @@
     margin-bottom: 12px;
     border-radius: 25px;  
   }
-   
+  #responses > div:hover {
+    color: black;
+    background-color: #E0D44F;
+  } 
+
+  
   } 
   /* Screen larger than 1000px? */
 @media (min-width: 1000px) {

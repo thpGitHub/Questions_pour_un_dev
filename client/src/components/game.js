@@ -24,6 +24,7 @@ const Game = () => {
     const [responseB, setResponseB] = useState("");
     const [responseC, setResponseC] = useState("");
     const [responseD, setResponseD] = useState("");
+    const [playerResponse, setPlayerResponse] = useState("");
 
     // let [socket, setSocket] = useState("");
     
@@ -82,7 +83,21 @@ const Game = () => {
         //     console.log("c'est possible");
         //     console.log(pseudoPlayer);
         //}
+        if(playerResponse) {
+            console.log("YouHou response du joueur");
+        }
+
       },[]);
+
+      useEffect(() => {
+        
+        console.log("pseudoPlayerOnePlussss", pseudoPlayerOne);
+     });
+
+      const handleResponseA = () => {
+            console.log("la réponse du jour est ", responseA);
+            setPlayerResponse(responseA);
+        };
     //   const socket = socketIOClient(ENDPOINT);
     //   console.log("socket === ", socket);
 
@@ -123,7 +138,7 @@ const Game = () => {
                         <div>{ currentQuestion }</div>
                     </section>
                     <section id="responses">
-                        <div id="response_a">A: { responseA }</div>
+                        <div id="response_a" onClick={handleResponseA}>A: { responseA }</div>
                         <div id="response_b">B: { responseB }</div>
                         <div id="response_c">C: { responseC }</div>
                         <div id="response_d">D: { responseD }</div>
