@@ -151,3 +151,9 @@
     padding-bottom: 10px;
     border: 0.5px solid #55efc4;
 }
+#message_one_player {
+    text-align: center;
+}
+#message_all_players {
+    text-align: center;
+}

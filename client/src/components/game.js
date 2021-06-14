@@ -5,10 +5,11 @@ import { useLocation } from "react-router-dom";
 import './game.css'
 
 const ENDPOINT = "http://localhost:8001";
-
+/*
+* Connexion Websocket avec le server 
+* Le serveur est sur le port 8001
+*/
 const socket = socketIOClient(ENDPOINT);
-// let socket ="";
-
 
 const Game = () => {
     /*
@@ -175,9 +176,9 @@ const Game = () => {
                     </section>
                 </aside>
                 <aside id="side_right">
-                    <div>Joueur 2</div>
-                    <div>nom 2</div>
-                    <div>score :<span id="score_player_two"> 0</span></div>
+                    {/* <div>Joueur 2</div> */}
+                    {/* <div>nom 2</div>
+                    <div>score :<span id="score_player_two"> 0</span></div> */}
                 </aside>    
             </section>
         </main>
