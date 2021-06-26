@@ -185,7 +185,7 @@
   
   } 
   /* Screen larger than 1000px? */
-@media (min-width: 1000px) {
+@media (min-width: 1450px) {
     #playground {  
         width: 720px;
         grid-template-columns: repeat(24, 30px);

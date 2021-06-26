@@ -67,6 +67,8 @@ const Game = () => {
 
         socket.on("current question", (msg) => {
             setCurrentQuestion(msg);
+            setMessageOnePlayer("");
+            setMessageAllPlayer("");
         });
         socket.on("response a", (msg) => {
             setResponseA(msg);
@@ -164,16 +166,20 @@ const Game = () => {
                         <div id="message_one_player">{  messageOnePlayer }</div>
                         <div id="message_all_players">{ messageAllPlayer }</div>
                     </section>
-                    <section id="question">
-                        {/* <h2>Question</h2> */}
-                        <div>{ currentQuestion }</div>
-                    </section>
-                    <section id="responses">
-                        <div id="response_a" onClick={ handleResponseA }>A: { responseA }</div>
-                        <div id="response_b" onClick={ handleResponseB }>B: { responseB }</div>
-                        <div id="response_c" onClick={ handleResponseC }>C: { responseC }</div>
-                        <div id="response_d" onClick={ handleResponseD }>D: { responseD }</div>
-                    </section>
+                    { currentQuestion && 
+                        <div>
+                          <section id="question">
+                            {/* <h2>Question</h2> */}
+                            <div>{ currentQuestion }</div>
+                          </section>
+                          <section id="responses">
+                            <div id="response_a" onClick={ handleResponseA }>A: { responseA }</div>
+                            <div id="response_b" onClick={ handleResponseB }>B: { responseB }</div>
+                            <div id="response_c" onClick={ handleResponseC }>C: { responseC }</div>
+                            <div id="response_d" onClick={ handleResponseD }>D: { responseD }</div>
+                          </section> 
+                        </div>
+                    }                  
                 </aside>
                 <aside id="side_right">
                     {/* <div>Joueur 2</div> */}
