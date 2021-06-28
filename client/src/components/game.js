@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import socketIOClient from "socket.io-client";
-import { useLocation } from "react-router-dom";
 import './game.css'
 
 const ENDPOINT = "http://localhost:8001";
@@ -15,10 +14,8 @@ const Game = () => {
     /*
     * chooseGame = onePlayer or twoplayer
      */
-    const [chooseGame, setChooseGame] = useState("");
     const [pseudoPlayerOne, setPseudoPlayerOne] = useState("");
     const [numberTimer, setNumberTimer] = useState(15);
-    const [allQuestions, setAllQuestions] = useState();
     const [messageOnePlayer, setMessageOnePlayer] = useState("");
     const [messageAllPlayer, setMessageAllPlayer] = useState("");
     const [currentQuestion, setCurrentQuestion] = useState("");
@@ -28,24 +25,14 @@ const Game = () => {
     const [responseD, setResponseD] = useState("");
     const [playerResponse, setPlayerResponse] = useState("");
     const [scorePlayerOne, setscorePlayerOne] = useState("");
-    // const [socket, setSocket] = useState(socketIOClient(ENDPOINT));
-
-    // let [socket, setSocket] = useState("");
     
-    // const history = useHistory();
-    // const pseudo = history.location.state;
-    // setPseudoPlayer(pseudo);
     const history = useHistory();
-    // let socket = "";
-
-    
+        
     useEffect(() => {
-        // setSocket(socketIOClient(ENDPOINT));
         console.log("playerResponse Change", playerResponse);
 
         socket.emit("player response", playerResponse);
-
-     },[playerResponse]);
+    },[playerResponse]);
 
     useEffect(() => {
         /*
@@ -94,25 +81,10 @@ const Game = () => {
         socket.on("Game Over", (msg) => {
             setMessageAllPlayer("Le Quizz est terminé");
         });
-        // socket.on("FromAPI", data => {
-        //   setResponse(data);
-        //   console.log(response);
-        // })
-        // const socket = socketIOClient(ENDPOINT);
-        console.log("history dans game === ", history);
-        setAllQuestions(history);
-        console.log("setAllQuestions === ", history.location.state.allQuestions);
         
-        // setPseudoPlayer(history.location.state);
-        // if(!pseudoPlayer) {
-        //     console.log("c'est possible");
-        //     console.log(pseudoPlayer);
-        //}
-        // if(playerResponse) {
-        //     console.log("YouHou response du joueur");
-        // }
+        console.log("history dans game === ", history);
 
-      },[]);
+    },[history]);
 
 
       const handleResponseA = () => {
@@ -131,23 +103,8 @@ const Game = () => {
             console.log("la réponse du jour est ", "d");
             setPlayerResponse("d");
         };
-    //   const socket = socketIOClient(ENDPOINT);
-    //   console.log("socket === ", socket);
-
-
-    //   setSocket.emit('chat message', "toitoi");
-    // const history = useHistory();
     
-    // for(let i=0; i<1; i++) {
-    //     const pseudo = history.location.state;
-    //     return setPseudoPlayer(pseudo);
-    // }
-    
-    // setPseudoPlayer(history.location.state);
     console.log("pseudoPlayerOne", pseudoPlayerOne);
-    // const location = useLocation();
-    // const myparam = location.state.params;
-    // console.log('props in game page === ',props);
 
     return (
         <main id="container_playground">

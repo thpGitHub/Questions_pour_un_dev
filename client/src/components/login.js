@@ -7,7 +7,7 @@ const Login = () => {
 
     const [allLogin, setAllLogin]   = useState("null");
     const [pseudo, setPseudo]       = useState("");
-    const [privilege, setPrivilege] = useState("");
+    // const [privilege, setPrivilege] = useState("");
     const [pwd, setPwd]             = useState("");
     const [message, setMessage]     = useState("");
 
@@ -19,9 +19,11 @@ const Login = () => {
     },[]);
 
     const history = useHistory(pseudo);
+    console.log("history ===", history);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("allLogin === ", allLogin);
         
         if(!pseudo || !pwd) {
             setMessage('veuillez remplir tous les champs');

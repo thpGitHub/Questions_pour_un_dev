@@ -155,6 +155,9 @@
         /* padding-top: 10px; */
         background: none;
   }
+  #message {
+      min-height: 100px;
+  }
   #question {
       /* padding-top: 25px; */
       width: 100%;
