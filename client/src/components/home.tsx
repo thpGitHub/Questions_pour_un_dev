@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{ FunctionComponent } from 'react';
 import './home.css';
 import { useHistory } from 'react-router-dom';
 
-const Home = () => {
+const Home: FunctionComponent = () => {
 
     const history = useHistory();
 

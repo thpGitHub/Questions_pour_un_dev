@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/home';
@@ -8,7 +8,7 @@ import Choose_Game from './components/choose_game';
 import Game from './components/game';
 import Admin from './components/admin';
 
-const App = () => {
+const App: FunctionComponent = () => {
 
   return (
     
