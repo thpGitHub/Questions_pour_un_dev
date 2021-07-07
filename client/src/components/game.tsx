@@ -76,7 +76,7 @@ const Game = () => {
         socket.on("bonne reponse", (msg) => {
             setscorePlayerOne(msg);
             setMessageAllPlayer("Bonne Réponse");
-            setTimeout(socket.emit("start game"), 3000); 
+            setTimeout(() => socket.emit("start game"), 3000); 
         });
         socket.on("Game Over", (msg) => {
             setMessageAllPlayer("Le Quizz est terminé");
