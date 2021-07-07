@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const Registration = () => {
 
-    const [allLogin, setAllLogin] = useState("null"),
+    const [allLogin, setAllLogin] = useState<any>(),
           [message_registration_fields_empty, setMessageRegistrationFieldsEmpty] = useState(""),
           [message_registration_pseudo, setMessageRegistrationPseudo] = useState(""),
           [message_registration_pwd, setMessageRegistrationPwd] = useState(""),
@@ -22,7 +22,7 @@ const Registration = () => {
 
     const history = useHistory();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): any => {
         e.preventDefault();
         console.log(!checkSamePwd(e));
         console.log(allLogin);
@@ -55,7 +55,7 @@ const Registration = () => {
      * Vérification si le pseudo existe dans la BDD  
      * Penser à limiter la longueur du pseudo à 10
     */
-    const checkPseudo = (e) => {
+    const checkPseudo = (e: React.ChangeEvent<HTMLInputElement>): void => {
         
         for(let i=0; i<allLogin.data.length; i++) {  
             if(allLogin.data[i].pseudo === e.target.value) {
@@ -67,7 +67,7 @@ const Registration = () => {
     * target[1] correspond à l'input#password 
     * target[2] correspond à l'input#confirmpassword 
     */
-    const checkSamePwd = (e) => {
+    const checkSamePwd = (e: React.BaseSyntheticEvent): boolean => {
         if(e.target[1].value === e.target[2].value) {
             return true;
         }
@@ -77,7 +77,7 @@ const Registration = () => {
     *vérification au keyup si tous les champs sont remplis on supprime le message 'veuillez remplir tous les champs'
     *et le message 'Mots de passes pas identiques'
     */
-    const handleKeyUp = () => {
+    const handleKeyUp = (): void => {
         console.log("key up function enter :)");
         
         if(pseudo !== "" && pwd !== "" && confirmPwd !== "") {

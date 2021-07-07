@@ -6,7 +6,7 @@ const Choose_Game = () => {
     const [pseudo, setPseudo] = useState("");
     const [privilege, setPrivilege] = useState("");
     
-    const history = useHistory();
+    const history: any = useHistory();
     const historyPrivilege = history.location.state.privilege;
     const historyPseudo = history.location.state.pseudo;
 
@@ -21,7 +21,7 @@ const Choose_Game = () => {
     console.log('history.location.state.pseudo dans choose game === ',history.location.state.pseudo);
     console.log('pseudo dans choose game === ',pseudo);
     
-    const handleSubmitOnePlayer = (e) => {
+    const handleSubmitOnePlayer = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.preventDefault();
     console.log('history dans choose game === ',history);
         
@@ -30,12 +30,12 @@ const Choose_Game = () => {
                                     //    allQuestions: allQuestions.data
                                      });
     }
-    const handleSubmitTwoPlayer = (e) => {
+    const handleSubmitTwoPlayer = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.preventDefault();
         console.log("in handleSubmitTwoPlayer");
         history.push("/game");
     }
-    const handleSubmitAdminPlayer = (e) => {
+    const handleSubmitAdminPlayer = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.preventDefault();
         console.log("in handleSubmitTwoPlayer");
         history.push("/admin");
