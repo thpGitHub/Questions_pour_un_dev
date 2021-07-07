@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Login = () => {
 
-    const [allLogin, setAllLogin]   = useState("null");
+    const [allLogin, setAllLogin]   = useState<any>();
     const [pseudo, setPseudo]       = useState("");
     // const [privilege, setPrivilege] = useState("");
     const [pwd, setPwd]             = useState("");
@@ -18,10 +18,11 @@ const Login = () => {
 			.catch((err) => console.log(err));
     },[]);
 
-    const history = useHistory(pseudo);
+    // const history = useHistory(pseudo);
+    const history = useHistory();
     console.log("history ===", history);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         console.log("allLogin === ", allLogin);
         
@@ -42,7 +43,7 @@ const Login = () => {
     /*
     * vérification au keyup si tous les champs sont remplis on supprime le message 'veuillez remplir tous les champs'
     */
-    const handleKeyUp = () => {
+    const handleKeyUp = (): void => {
         console.log('key up function enter :)');
         
         if(pseudo !== "" && pwd !== "") {
