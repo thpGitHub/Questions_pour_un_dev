@@ -14,15 +14,15 @@ const Game = () => {
     /*
     * chooseGame = onePlayer or twoplayer
      */
-    const [pseudoPlayerOne, setPseudoPlayerOne] = useState("");
-    const [numberTimer, setNumberTimer] = useState(15);
-    const [messageOnePlayer, setMessageOnePlayer] = useState("");
-    const [messageAllPlayer, setMessageAllPlayer] = useState("");
-    const [currentQuestion, setCurrentQuestion] = useState("");
-    const [responseA, setResponseA] = useState("");
-    const [responseB, setResponseB] = useState("");
-    const [responseC, setResponseC] = useState("");
-    const [responseD, setResponseD] = useState("");
+    const [pseudoPlayerOne, setPseudoPlayerOne] = useState<string>("");
+    const [numberTimer, setNumberTimer] = useState<number>(15);
+    const [messageOnePlayer, setMessageOnePlayer] = useState<string>("");
+    const [messageAllPlayer, setMessageAllPlayer] = useState<string>("");
+    const [currentQuestion, setCurrentQuestion] = useState<string>("");
+    const [responseA, setResponseA] = useState<string>("");
+    const [responseB, setResponseB] = useState<string>("");
+    const [responseC, setResponseC] = useState<string>("");
+    const [responseD, setResponseD] = useState<string>("");
     const [playerResponse, setPlayerResponse] = useState("");
     const [scorePlayerOne, setscorePlayerOne] = useState("");
     

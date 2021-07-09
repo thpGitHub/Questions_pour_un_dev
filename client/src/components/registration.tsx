@@ -6,12 +6,12 @@ import { useHistory } from 'react-router-dom';
 const Registration = () => {
 
     const [allLogin, setAllLogin] = useState<any>(),
-          [message_registration_fields_empty, setMessageRegistrationFieldsEmpty] = useState(""),
-          [message_registration_pseudo, setMessageRegistrationPseudo] = useState(""),
-          [message_registration_pwd, setMessageRegistrationPwd] = useState(""),
-          [pseudo, setPseudo] = useState(""),
-          [pwd, setPwd] = useState(""),
-          [confirmPwd, setConfirmPwd] = useState("");
+          [message_registration_fields_empty, setMessageRegistrationFieldsEmpty] = useState<string>(""),
+          [message_registration_pseudo, setMessageRegistrationPseudo] = useState<string>(""),
+          [message_registration_pwd, setMessageRegistrationPwd] = useState<string>(""),
+          [pseudo, setPseudo] = useState<string>(""),
+          [pwd, setPwd] = useState<string>(""),
+          [confirmPwd, setConfirmPwd] = useState<string>("");
 
     useEffect( () => {
         axios

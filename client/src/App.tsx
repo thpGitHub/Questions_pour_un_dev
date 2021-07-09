@@ -7,6 +7,7 @@ import Registration from './components/registration';
 import Choose_Game from './components/choose_game';
 import Game from './components/game';
 import Admin from './components/admin';
+import PageNotFound from './components/pageNotFoung';
 
 const App: FunctionComponent = () => {
 
@@ -24,11 +25,7 @@ const App: FunctionComponent = () => {
                   <Route exact path="/choose_game" component={ Choose_Game }/>
                   <Route exact path="/game" component={ Game }/>
                   <Route exact path="/admin" component={ Admin }/>
-                  
-                  {/* <Route exact path="/pokemon/add" component={ PokemonAdd }/>
-                  <Route exact path="/pokemons/edit/:id" component={ PokemonEdit }/>
-                  <Route exact path="/pokemon/:id" component={ PokemonDetail }/>
-                  <Route component={ PageNotFound }/> */}
+                  <Route component={ PageNotFound }/>
              </Switch>
        </div>
        </Router>

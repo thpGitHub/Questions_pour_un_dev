@@ -6,10 +6,10 @@ import axios from 'axios';
 const Login = () => {
 
     const [allLogin, setAllLogin]   = useState<any>();
-    const [pseudo, setPseudo]       = useState("");
+    const [pseudo, setPseudo]       = useState<string>("");
     // const [privilege, setPrivilege] = useState("");
-    const [pwd, setPwd]             = useState("");
-    const [message, setMessage]     = useState("");
+    const [pwd, setPwd]             = useState<string>("");
+    const [message, setMessage]     = useState<string>("");
 
     useEffect(() => {
         axios

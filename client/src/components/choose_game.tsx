@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import './choose_game.css';
 
 const Choose_Game = () => {
-    const [pseudo, setPseudo] = useState("");
-    const [privilege, setPrivilege] = useState("");
+    const [pseudo, setPseudo] = useState<string>("");
+    const [privilege, setPrivilege] = useState<string>("");
     
     const history: any = useHistory();
     const historyPrivilege = history.location.state.privilege;
