@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Attention le schéma est celui de Login penser a faire celui de questions !!!!!
 const loginSchema = new Schema({
     question: {
          type: String,

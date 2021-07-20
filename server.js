@@ -3,9 +3,12 @@ const app = express();
 const http = require('http').createServer(app);
 const path = require('path');
 const cors = require('cors');
-require('./database_connect');
+// require('./database_connect');
+const DatabaseConnection = require('./database_connection');
+// const AuthenticateService = require('./')
 
-const savePeudoOnServer = [];
+DatabaseConnection.connect();
+// const savePeudoOnServer = [];
 
 const io = require("socket.io")(http, { 
     cors: { 
